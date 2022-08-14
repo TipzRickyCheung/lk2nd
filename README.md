@@ -68,6 +68,7 @@ page on the EFIDroid wiki for an exact mapping of LK targets to SoCs.
 - Motorola Moto E (2015) - surnia
 - Motorola Moto G (2015) - osprey
 - Motorola Moto G4 Play - harpia
+- OPPO R1c - r1c (quirky - see comment in `dts/msm8916/msm8939-oppo-14045.dts`)
 - Samsung Galaxy A3 (2015) - SM-A300F, SM-A300FU
 - Samsung Galaxy A5 (2015) - SM-A500F, SM-A500FU, SM-A500H, SM-A500YZ
 - Samsung Galaxy A7 (2015) - SM-A700YD
