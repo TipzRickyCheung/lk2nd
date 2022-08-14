@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: GPL-2.0-only
+
+/dts-v1/;
+
+#include <skeleton.dtsi>
+
+/ {
+	compatible = "msm8916-mtp", "qcom,msm8916";
+	qcom,msm-id = <206 0>, <248 0>, <249 0>, <250 0>;
+	qcom,board-id = <8 0 15005>;
+
+	/*
+	 * Before building for A31t, please comment out all dtbs except
+	 * "$(LOCAL_DIR)/msm8916-oppo-15005.dtb" at './rules.mk'.
+	 * a31t doesn't work with multi-dtbs; only responds with "dtb not found".
+	 */
+	oppo-a31t {
+		model = "OPPO A31t";
+		compatible = "oppo,a31t", "qcom,msm8916", "lk2nd,device";
+	};
+};
