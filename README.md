@@ -68,17 +68,17 @@ page on the EFIDroid wiki for an exact mapping of LK targets to SoCs.
 - Motorola Moto E (2015) - surnia
 - Motorola Moto G (2015) - osprey
 - Motorola Moto G4 Play - harpia
-- OPPO A31t - a31t (quirky - see comment in `dts/msm8916/msm8916-oppo-15005.dts`)
-- OPPO A33 - a33 (quirky - see comment in `dts/msm8916/msm8916-oppo-15035.dts`)
-- OPPO A37 - a37 (quirky - see comment in `dts/msm8916/msm8916-oppo-15399.dts`)
-- OPPO F1f - f1f (quirky - see comment in `dts/msm8916/msm8939-oppo-15109.dts`)
-- OPPO Mirror 5s - a51f (quirky - see comment in `dts/msm8916/msm8916-oppo-15009.dts`)
-- OPPO R1c - r1c (quirky - see comment in `dts/msm8916/msm8939-oppo-14045.dts`)
-- OPPO R5 - r5 (quirky - see comment in `dts/msm8916/msm8939-oppo-14005.dts`)
-- OPPO R7f - r7f (quirky - see comment in `dts/msm8916/msm8939-oppo-15011.dts`)
-- OPPO R7 Plus - r7plus (quirky - see comment in `dts/msm8916/msm8939-oppo-15018.dts`)
-- OPPO R7sf - r7sf (quirky - see comment in `dts/msm8916/msm8939-oppo-15022.dts`)
-- OPPO R7s Plus - r7splus (quirky - see comment in `dts/msm8916/msm8939-oppo-15119.dts`)
+- OPPO A31t - a31t (use `lk2nd-msm8916-oppo.img`)
+- OPPO A33 - a33 (use `lk2nd-msm8916-oppo.img`)
+- OPPO A37 - a37 (use `lk2nd-msm8916-oppo.img`)
+- OPPO F1f - f1f (use `lk2nd-msm8916-oppo.img`)
+- OPPO Mirror 5s - a51f (use `lk2nd-msm8916-oppo.img`)
+- OPPO R1c - r1c (use `lk2nd-msm8916-oppo.img`)
+- OPPO R5 - r5 (use `lk2nd-msm8916-oppo.img`)
+- OPPO R7f - r7f (use `lk2nd-msm8916-oppo.img`)
+- OPPO R7 Plus - r7plus (use `lk2nd-msm8916-oppo.img`)
+- OPPO R7sf - r7sf (use `lk2nd-msm8916-oppo.img`)
+- OPPO R7s Plus - r7splus (use `lk2nd-msm8916-oppo.img`)
 - Samsung Galaxy A3 (2015) - SM-A300F, SM-A300FU
 - Samsung Galaxy A5 (2015) - SM-A500F, SM-A500FU, SM-A500H, SM-A500YZ
 - Samsung Galaxy A7 (2015) - SM-A700YD
