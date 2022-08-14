@@ -10,12 +10,12 @@
 	qcom,board-id = <8 0 15018>;
 
 	/*
-	 * Before building for R7 Plus, please comment out all dtbs except
+	 * Before building for R7/R7s Plus, please comment out all dtbs except
 	 * "$(LOCAL_DIR)/msm8939-oppo-15018.dtb" at './rules.mk'.
 	 * r7plus doesn't work with multi-dtbs; only responds with "dtb not found".
 	 */
 	oppo-r7plus {
-		model = "OPPO R7 Plus";
+		model = "OPPO R7/R7s Plus";
 		compatible = "oppo,r7plus", "qcom,msm8939", "lk2nd,device";
 	};
 };

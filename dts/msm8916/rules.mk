@@ -50,5 +50,4 @@ OPPO_DTBS += $(LOCAL_DIR)/msm8916-oppo-15005.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-15011.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-15018.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-15022.dtb \
-	$(LOCAL_DIR)/msm8939-oppo-15109.dtb \
-	$(LOCAL_DIR)/msm8939-oppo-15119.dtb
+	$(LOCAL_DIR)/msm8939-oppo-15109.dtb
