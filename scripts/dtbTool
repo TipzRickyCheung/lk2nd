@@ -271,11 +271,12 @@ class QcomIds(object):
 
 @total_ordering
 class DTRecord:
-	def __init__(self, plat_id, variant_id, subtype_id, soc_rev, pmic0, pmic1, pmic2, pmic3, offset, size, f, version):
+	def __init__(self, plat_id, variant_id, subtype_id, soc_rev, oppo_id, pmic0, pmic1, pmic2, pmic3, offset, size, f, version):
 		self.plat_id = int(plat_id)
 		self.variant_id = int(variant_id)
 		self.subtype_id = int(subtype_id)
 		self.soc_rev = int(soc_rev)
+		self.oppo_id = int(oppo_id)
 		self.pmic0 = int(pmic0)
 		self.pmic1 = int(pmic1)
 		self.pmic2 = int(pmic2)
@@ -293,6 +294,7 @@ class DTRecord:
 		       self.variant_id == other.variant_id and
 		       self.subtype_id == other.subtype_id and
 		       self.soc_rev == other.soc_rev and
+		       self.oppo_id == other.oppo_id and
 		       self.pmic0 == other.pmic0 and
 		       self.pmic1 == other.pmic1 and
 		       self.pmic2 == other.pmic2 and
@@ -316,6 +318,10 @@ class DTRecord:
 		if self.soc_rev < other.soc_rev:
 			return True
 		if self.soc_rev > other.soc_rev:
+			return False
+		if self.oppo_id < other.oppo_id:
+			return True
+		if self.oppo_id > other.oppo_id:
 			return False
 		if self.pmic0 < other.pmic0:
 			return True
@@ -355,7 +361,11 @@ def generate_records(f, pagesize):
 
 	if board_id:
 		x = iter(board_id)
-		board_id = list(zip(x, x))
+		# FIXME: greater than 3 is an assumption, since we shouldn't place multiple of the same OPPO IDs in the same dts
+		if (len(board_id) == 2 or len(board_id) > 3):
+			board_id = list(zip(x, x, [0]))
+		else:
+			board_id = list(zip(x, x, x))
 		x = iter(msm_id)
 		msm_id = list(zip(x, x))
 		version = 2
@@ -373,20 +383,20 @@ def generate_records(f, pagesize):
 	if version == 1:
 		for (plat_id, variant_id, soc_rev) in msm_id:
 			records += [DTRecord(plat_id, variant_id, 0, soc_rev,
-					    0, 0, 0, 0, 0, size, f, version)]
+					    0, 0, 0, 0, 0, 0, size, f, version)]
 	elif version == 2:
 		for (plat_id, soc_rev) in msm_id:
-			for (variant_id, subtype_id) in board_id:
+			for (variant_id, subtype_id, oppo_id) in board_id:
 				records += [DTRecord(plat_id, variant_id,
-						    subtype_id, soc_rev,
+						    subtype_id, soc_rev, oppo_id,
 						    0, 0, 0, 0, 0, size, f,
 						    version)]
 	elif version == 3:
 		for (plat_id, soc_rev) in msm_id:
-			for (variant_id, subtype_id) in board_id:
+			for (variant_id, subtype_id, oppo_id) in board_id:
 				for (pmic0, pmic1, pmic2, pmic3) in pmic_id:
 					records += [DTRecord(plat_id, variant_id,
-							    subtype_id, soc_rev,
+							    subtype_id, soc_rev, oppo_id,
 							    pmic0, pmic1, pmic2,
 							    pmic3, 0, size, f,
 							    version)]
@@ -396,7 +406,7 @@ def generate_records(f, pagesize):
 		ids = [QcomIds(compat, pmics) for compat in compats
 				if QcomIds.valid(compat)]
 		records += [DTRecord(x.msm_id[0], x.board_id[0], x.board_id[1],
-				     x.msm_id[1], x.pmic_id[0], x.pmic_id[1],
+				     x.msm_id[1], 0, x.pmic_id[0], x.pmic_id[1],
 				     x.pmic_id[2], x.pmic_id[3], 0, size, f,
 				     version) for x in ids]
 
@@ -490,27 +500,53 @@ if __name__ == "__main__":
 			  r.offset,
 			  r.size) for r in records])
 	elif version == 2:
-		blob_format = "<IIIIII"
-		blob += b"".join([pack(blob_format,
-			  r.plat_id,
-			  r.variant_id,
-			  r.subtype_id,
-			  r.soc_rev,
-			  r.offset,
-			  r.size) for r in records])
+		if not r.oppo_id == 0:
+			blob_format = "<IIIIIII"
+			blob += b"".join([pack(blob_format,
+				  r.plat_id,
+				  r.variant_id,
+				  r.subtype_id,
+				  r.soc_rev,
+				  r.oppo_id,
+				  r.offset,
+				  r.size) for r in records])
+		else:
+			blob_format = "<IIIIII"
+			blob += b"".join([pack(blob_format,
+				  r.plat_id,
+				  r.variant_id,
+				  r.subtype_id,
+				  r.soc_rev,
+				  r.offset,
+				  r.size) for r in records])
 	elif version == 3:
-		blob_format = "<IIIIIIIIII"
-		blob += b"".join([pack(blob_format,
-			  r.plat_id,
-			  r.variant_id,
-			  r.subtype_id,
-			  r.soc_rev,
-			  r.pmic0,
-			  r.pmic1,
-			  r.pmic2,
-			  r.pmic3,
-			  r.offset,
-			  r.size) for r in records])
+		if not r.oppo_id == 0:
+			blob_format = "<IIIIIIIIIII"
+			blob += b"".join([pack(blob_format,
+				  r.plat_id,
+				  r.variant_id,
+				  r.subtype_id,
+				  r.soc_rev,
+				  r.oppo_id,
+				  r.pmic0,
+				  r.pmic1,
+				  r.pmic2,
+				  r.pmic3,
+				  r.offset,
+				  r.size) for r in records])
+		else:
+			blob_format = "<IIIIIIIIII"
+			blob += b"".join([pack(blob_format,
+				  r.plat_id,
+				  r.variant_id,
+				  r.subtype_id,
+				  r.soc_rev,
+				  r.pmic0,
+				  r.pmic1,
+				  r.pmic2,
+				  r.pmic3,
+				  r.offset,
+				  r.size) for r in records])
 	blob += pack("<I", 0)
 	output.write(blob)
 
