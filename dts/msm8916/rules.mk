@@ -22,6 +22,7 @@ DTBS += \
 	$(LOCAL_DIR)/msm8916-oppo-15005.dtb \
 	$(LOCAL_DIR)/msm8916-oppo-15009.dtb \
 	$(LOCAL_DIR)/msm8916-oppo-15035.dtb \
+	$(LOCAL_DIR)/msm8916-oppo-15399.dtb \
 	$(LOCAL_DIR)/msm8916-qrd4-v1.dtb \
 	$(LOCAL_DIR)/msm8916-qrd5-v1.dtb \
 	$(LOCAL_DIR)/msm8916-qrd7+12-v1.dtb \
