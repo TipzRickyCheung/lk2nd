@@ -76,6 +76,7 @@ page on the EFIDroid wiki for an exact mapping of LK targets to SoCs.
 - OPPO R5 - r5 (quirky - see comment in `dts/msm8916/msm8939-oppo-14005.dts`)
 - OPPO R7f - r7f (quirky - see comment in `dts/msm8916/msm8939-oppo-15011.dts`)
 - OPPO R7 Plus - r7plus (quirky - see comment in `dts/msm8916/msm8939-oppo-15018.dts`)
+- OPPO R7sf - r7sf (quirky - see comment in `dts/msm8916/msm8939-oppo-15022.dts`)
 - Samsung Galaxy A3 (2015) - SM-A300F, SM-A300FU
 - Samsung Galaxy A5 (2015) - SM-A500F, SM-A500FU, SM-A500H, SM-A500YZ
 - Samsung Galaxy A7 (2015) - SM-A700YD

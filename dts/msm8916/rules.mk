@@ -46,5 +46,6 @@ DTBS += \
 	$(LOCAL_DIR)/msm8939-oppo-14045.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-15011.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-15018.dtb \
+	$(LOCAL_DIR)/msm8939-oppo-15022.dtb \
 	$(LOCAL_DIR)/msm8939-qrd-skuk.dtb \
 	$(LOCAL_DIR)/msm8939-samsung-r01.dtb

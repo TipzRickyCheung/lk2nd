@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: GPL-2.0-only
+
+/dts-v1/;
+
+#include <skeleton.dtsi>
+
+/ {
+	compatible = "qcom,msm8939-mtp", "qcom,msm8939";
+	qcom,msm-id = <239 0>;
+	qcom,board-id = <8 0 15022>;
+
+	/*
+	 * Before building for R7sf, please comment out all dtbs except
+	 * "$(LOCAL_DIR)/msm8939-oppo-15022.dtb" at './rules.mk'.
+	 * r7sf doesn't work with multi-dtbs; only responds with "dtb not found".
+	 */
+	oppo-r7sf {
+		model = "OPPO R7sf";
+		compatible = "oppo,r7sf", "qcom,msm8939", "lk2nd,device";
+	};
+};
