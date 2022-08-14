@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: GPL-2.0-only
+
+/dts-v1/;
+
+#include <skeleton.dtsi>
+
+/ {
+	compatible = "qcom,msm8939-mtp", "qcom,msm8939";
+	qcom,msm-id = <239 0>;
+	qcom,board-id = <8 0 14005>;
+
+	/*
+	 * Before building for R5, please comment out all dtbs except
+	 * "$(LOCAL_DIR)/msm8939-oppo-14005.dtb" at './rules.mk'.
+	 * r5 doesn't work with multi-dtbs; only responds with "dtb not found".
+	 */
+	oppo-r5 {
+		model = "OPPO R5";
+		compatible = "oppo,r5", "qcom,msm8939", "lk2nd,device";
+	};
+};
