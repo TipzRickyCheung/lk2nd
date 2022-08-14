@@ -56,6 +56,9 @@ $(BUILDDIR)/%.dtb: %.dts
 $(OUTDTIMG): $(DTBS)
 	$(NOECHO)scripts/dtbTool -o $@ $(BUILDDIR)/dts/$(TARGET)
 
+$(OUTDTIMGOPPO): $(OPPO_DTBS)
+	$(NOECHO)scripts/dtbTool --oppo -o $@ $(BUILDDIR)/dts/$(TARGET)
+
 define mkbootimg
 	$(NOECHO)scripts/mkbootimg \
 		--kernel=$< \
@@ -72,6 +75,9 @@ $(OUTBOOTIMG): $(OUTBIN) $(OUTDTIMG)
 
 $(OUTBOOTIMGADTB): $(OUTBINDTB)
 	$(call mkbootimg)
+
+$(OUTBOOTIMGOPPO): $(OUTBIN) $(OUTDTIMGOPPO)
+	$(call mkbootimg,--dt=$(OUTDTIMGOPPO))
 
 $(OUTODINTAR): $(OUTBOOTIMG)
 	$(NOECHO)tar \

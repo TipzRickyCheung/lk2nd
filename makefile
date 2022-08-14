@@ -57,7 +57,9 @@ OUTELF := $(BUILDDIR)/lk
 OUTELF_STRIP := $(BUILDDIR)/lk_s.elf
 OUTBOOTIMG := $(BUILDDIR)/boot.img
 OUTBOOTIMGADTB = $(OUTBOOTIMG:.img=-appended-dtb.img)
+OUTBOOTIMGOPPO = $(OUTBOOTIMG:.img=-oppo.img)
 OUTDTIMG := $(BUILDDIR)/dt.img
+OUTDTIMGOPPO = $(OUTDTIMG:.img=-oppo.img)
 OUTODINTAR := $(BUILDDIR)/odin.tar
 
 CONFIGHEADER := $(BUILDDIR)/config.h
@@ -107,6 +109,7 @@ all:: $(OUTBIN) $(OUTELF).lst $(OUTELF).debug.lst $(OUTELF).sym $(OUTELF).size $
 BOOTOBJS :=	
 OBJS :=
 DTBS :=
+OPPO_DTBS :=
 
 # a linker script needs to be declared in one of the project/target/platform files
 LINKER_SCRIPT := 			
@@ -200,6 +203,7 @@ endif
 
 ALLOBJS := $(addprefix $(BUILDDIR)/,$(ALLOBJS))
 DTBS := $(addprefix $(BUILDDIR)/,$(DTBS))
+OPPO_DTBS := $(addprefix $(BUILDDIR)/,$(OPPO_DTBS))
 
 DEPS := $(ALLOBJS:%o=%d)
 

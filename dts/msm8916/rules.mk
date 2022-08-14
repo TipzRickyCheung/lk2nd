@@ -19,10 +19,6 @@ DTBS += \
 	$(LOCAL_DIR)/msm8916-motorola-surnia.dtb \
 	$(LOCAL_DIR)/msm8916-mtp.dtb \
 	$(LOCAL_DIR)/msm8916-mtp-smb1360.dtb \
-	$(LOCAL_DIR)/msm8916-oppo-15005.dtb \
-	$(LOCAL_DIR)/msm8916-oppo-15009.dtb \
-	$(LOCAL_DIR)/msm8916-oppo-15035.dtb \
-	$(LOCAL_DIR)/msm8916-oppo-15399.dtb \
 	$(LOCAL_DIR)/msm8916-qrd4-v1.dtb \
 	$(LOCAL_DIR)/msm8916-qrd5-v1.dtb \
 	$(LOCAL_DIR)/msm8916-qrd7+12-v1.dtb \
@@ -42,12 +38,17 @@ DTBS += \
 	$(LOCAL_DIR)/msm8939-asus-z00t.dtb \
 	$(LOCAL_DIR)/msm8939-huawei-kiwi.dtb \
 	$(LOCAL_DIR)/msm8939-mtp.dtb \
+	$(LOCAL_DIR)/msm8939-qrd-skuk.dtb \
+	$(LOCAL_DIR)/msm8939-samsung-r01.dtb
+
+OPPO_DTBS += $(LOCAL_DIR)/msm8916-oppo-15005.dtb \
+	$(LOCAL_DIR)/msm8916-oppo-15009.dtb \
+	$(LOCAL_DIR)/msm8916-oppo-15035.dtb \
+	$(LOCAL_DIR)/msm8916-oppo-15399.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-14005.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-14045.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-15011.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-15018.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-15022.dtb \
 	$(LOCAL_DIR)/msm8939-oppo-15109.dtb \
-	$(LOCAL_DIR)/msm8939-oppo-15119.dtb \
-	$(LOCAL_DIR)/msm8939-qrd-skuk.dtb \
-	$(LOCAL_DIR)/msm8939-samsung-r01.dtb
+	$(LOCAL_DIR)/msm8939-oppo-15119.dtb
