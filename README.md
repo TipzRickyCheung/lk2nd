@@ -71,6 +71,7 @@ page on the EFIDroid wiki for an exact mapping of LK targets to SoCs.
 - OPPO A31t - a31t (quirky - see comment in `dts/msm8916/msm8916-oppo-15005.dts`)
 - OPPO A33 - a33 (quirky - see comment in `dts/msm8916/msm8916-oppo-15035.dts`)
 - OPPO A37 - a37 (quirky - see comment in `dts/msm8916/msm8916-oppo-15399.dts`)
+- OPPO F1f - f1f (quirky - see comment in `dts/msm8916/msm8939-oppo-15109.dts`)
 - OPPO Mirror 5s - a51f (quirky - see comment in `dts/msm8916/msm8916-oppo-15009.dts`)
 - OPPO R1c - r1c (quirky - see comment in `dts/msm8916/msm8939-oppo-14045.dts`)
 - OPPO R5 - r5 (quirky - see comment in `dts/msm8916/msm8939-oppo-14005.dts`)
