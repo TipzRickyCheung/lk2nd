@@ -361,11 +361,10 @@ def generate_records(f, pagesize):
 
 	if board_id:
 		x = iter(board_id)
-		# FIXME: greater than 3 is an assumption, since we shouldn't place multiple of the same OPPO IDs in the same dts
-		if (len(board_id) == 2 or len(board_id) > 3):
-			board_id = list(zip(x, x, [0]))
-		else:
+		if oppo == True:
 			board_id = list(zip(x, x, x))
+		else:
+			board_id = list(zip(x, x, [0]))
 		x = iter(msm_id)
 		msm_id = list(zip(x, x))
 		version = 2
@@ -434,6 +433,8 @@ if __name__ == "__main__":
 	# New options
 	parser.add_option("--version", dest="version", type="int",
 			  help="Force version")
+	parser.add_option("--oppo", action="store_true",
+			  dest="oppo", help="Enable OPPO board-id hack")
 
 	(options, args) = parser.parse_args()
 
@@ -441,6 +442,9 @@ if __name__ == "__main__":
 		parser.error("Output file must be specified")
 	if len(args) != 1:
 		parser.error("Exactly one input directory must be specified")
+
+	global oppo
+	oppo = options.oppo
 
 	pagesize = options.pagesize
 	indir = args[0]
